@@ -32,6 +32,16 @@ describe("All test", function () {
     assert(counter === 0);
   });
 
+  it("Default implementation does nothing", function () {
+    // just for the sake of calling the doCompute
+    class DummySpecialization extends DefaultImplementation {
+      // no change
+    }
+
+    const instance = new DummySpecialization();
+    instance.compute();
+  });
+
   it("Check coverage for concrete implementation", function () {
     const instance = new ConcreteImplementation("hello");
     instance.compute();
