@@ -14,4 +14,6 @@ git clone https://github.com/antoine-morvan/nyc-constructor-coverage-issue.git
 ```
 
 Open `target/coveragejs/ConcreteImplementation.ts.html#L6` and observe that the constructor has an uncovered line (the
-one calling `super()`);
+one calling `super()`):
+
+![](nyc-result.png)
