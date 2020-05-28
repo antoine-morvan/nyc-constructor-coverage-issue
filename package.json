@@ -1,0 +1,92 @@
+{
+  "name": "nyc-constructor-coverage-issue",
+  "version": "1.0.0",
+  "description": "Minimal project to reproduce a bug",
+  "scripts": {
+    "test-nocoverage": "cross-env NODE_ENV=test mocha",
+    "test-coverage": "cross-env NODE_ENV=test nyc mocha",
+    "eslint": "cross-env eslint -c .eslintrc --ext '.ts' 'src/' 'test/'",
+    "clean": "rimraf ./target/"
+  },
+  "private": true,
+  "mocha": {
+    "extension": [
+      "ts"
+    ],
+    "files": {
+      "rootDir": "test"
+    },
+    "recursive": true,
+    "require": [
+      "ts-node/register",
+      "tsconfig-paths/register"
+    ],
+    "slow": 1200,
+    "timeout": 30000,
+    "check-leaks": true,
+    "globals": [
+      "fetch",
+      "Response",
+      "Headers",
+      "Request"
+    ]
+  },
+  "nyc": {
+    "check-coverage": true,
+    "report-dir": "target/coveragejs/",
+    "temp-dir": "target/.nyc_tmp/",
+    "branches": 10,
+    "lines": 50,
+    "cache": false,
+    "functions": 50,
+    "statements": 50,
+    "include": [
+      "src/**/*.ts"
+    ],
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "require": [
+      "ts-node/register",
+      "tsconfig-paths/register",
+      "source-map-support/register"
+    ],
+    "all": true,
+    "instrument": true,
+    "sourceMap": true,
+    "reporter": [
+      "lcov",
+      "html",
+      "text",
+      "text-summary"
+    ],
+    "recursive": true,
+    "produce-source-map": true,
+    "exit": true
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
+    "@types/chai": "^4.2.4",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.12.12",
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "latest",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "cross-env": "^7.0.2",
+    "eslint": "^6.6.0",
+    "eslint-plugin-import": "latest",
+    "eslint-plugin-mocha": "^6.2.2",
+    "eslint-plugin-node": "latest",
+    "eslint-plugin-promise": "latest",
+    "eslint-plugin-standard": "latest",
+    "mocha": "^7.1.2",
+    "mocha-sonarqube-reporter": "^1.0.1",
+    "npm": "latest",
+    "nyc": "^15.0.1",
+    "source-map-support": "^0.5.16",
+    "ts-node": "^8.10.1",
+    "tsc-alias": "latest",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.9.3"
+  }
+}
