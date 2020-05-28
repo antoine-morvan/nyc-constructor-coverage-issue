@@ -1,8 +1,8 @@
-import { AbstractImplementation } from "@src/AbstractImplementation";
+import { MainInterface } from "@src/MainInterface";
 
-export abstract class DefaultImplementation extends AbstractImplementation<void> {
+export abstract class DefaultImplementation implements MainInterface<void> {
   constructor() {
-    super();
+    // nothing
   }
 
   compute(): void {
