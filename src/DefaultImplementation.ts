@@ -1,6 +1,10 @@
 import { AbstractImplementation } from "@src/AbstractImplementation";
 
 export abstract class DefaultImplementation extends AbstractImplementation<void> {
+  constructor() {
+    super();
+  }
+
   compute(): void {
     if (this.preCompute()) {
       this.doCompute();
